@@ -1,0 +1,84 @@
+{% load static %}
+{% load jalali_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" >,
+    <title>بررسی درخواست</title>
+    <style>
+        body {
+            font-family: Vazirmatn, sans-serif;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 90%;
+            border-radius: 10px;
+        }
+
+        table, th, td {
+            border: 1px solid;
+        }
+
+        th {
+            background: #99d98c;
+            color: #184e77;
+            padding: 20px;
+            width: 30%;
+        }
+
+        td {
+            padding: 20px;
+            width: 70%;
+        }
+    </style>
+</head>
+<body style="align-items: center;justify-content: center;display: flex">
+<div style="display: flex;justify-content: center;align-items: center;flex-direction: column;direction: rtl;width: 70%">
+    <h1>کلید سازی جوان</h1>
+
+    <table style="align-items: center;justify-content: center">
+        <tr>
+            <th class="header">شناسه درخواست</th>
+            <td class="value">{{ object.web_id }}</td>
+        </tr>
+        <tr>
+            <th class="header">وضعیت درخواست</th>
+            {% if object.status == "CO" %}
+                <td style="background: green;" class="value">تکمیل شده</td>
+            {% elif object.status == "NA" %}
+                <td style="background: yellow;" class="value"> در انتظار تایید</td>
+            {% elif object.status == "AC" %}
+                <td style="background: cadetblue" class="value">تایید شده</td>
+            {% elif object.status == "DE" %}
+                <td style="background:red" class="value">رد شده</td>
+            {% endif %}
+        </tr>
+        <tr>
+            <th class="header">تاریخ درخواست</th>
+            <td class="value">{{ object.created|to_jalali:"%Y/%m/%d-%H:%M" }}</td>
+        </tr>
+        <tr>
+            <th class="header">نام مشتری</th>
+            <td class="value">{{ object.customer.fullname }}</td>
+        </tr>
+        <tr>
+            <th class="header">درخواست مشتری</th>
+            <td class="value">{{ object.request }}</td>
+        </tr>
+        {% if object.descriptions != null %}
+            <tr>
+                <th class="header">توضیحات استادکار</th>
+                <td class="value">{{ object.descriptions }}</td>
+            </tr>
+        {% endif %}
+
+    </table>
+</div>
+</body>
+</html>

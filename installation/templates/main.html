@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>کلیدسازی جوان</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <style>
+        body {
+            direction: rtl;
+            font-family: Vazirmatn, sans-serif;
+
+        }
+
+        form {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+<div style="display: flex;flex-direction: column;justify-content:center;align-items: center ;margin: 20px">
+    <h1>
+        کلیدسازی جوان
+    </h1>
+    <p style="text-align: center;margin: 0">
+        نشانی: کرمان، جاده تهران
+    </p>
+    <form style="margin: 10px;" method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button style="margin: 20px;padding: 3px" type="submit" class="save btn btn-default">برو</button>
+    </form>
+
+    <p>
+        <br>
+
+
+    </p>
+</div>
+</body>
+</html>
