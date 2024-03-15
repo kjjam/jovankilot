@@ -26,7 +26,8 @@ WEB_ID_SALT = '$2b$12$0LW60C5.14vkQ5A0MAw6rO'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', False) == 'True'
 
-ALLOWED_HOSTS = ["*","javankelid.darkube.app"]
+ALLOWED_HOSTS = ["javankelid.darkube.app"]
+CSRF_TRUSTED_ORIGINS = ["https://javankelid.darkube.app"]
 
 # Application definition
 
