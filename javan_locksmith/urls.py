@@ -25,3 +25,5 @@ urlpatterns = [
                   # path("request/<str:web_id>", GetRequestView.as_view(), name="get-request-detail"),
                   path('', search_request_view, name="search-request")
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+handler404 = 'installation.views.custom_404'

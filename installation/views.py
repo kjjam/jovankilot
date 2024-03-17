@@ -23,3 +23,7 @@ def search_request_view(request):
                 raise Http404
         else:
             raise Http404
+
+
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)
