@@ -1,10 +1,22 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>کلیدسازی جوان</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <style>
+        body {
+            direction: rtl;
+            font-family: Vazirmatn, sans-serif;
+
+        }
+    </style>
 </head>
 <body>
-<p>پیدا نشد</p>
+<div style="display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 20px">
+    <img src="{% static 'sad.png' %}" alt="not found" style="width: 20%"/>
+    <p style="text-align: center">پیدا نشد</p>
+</div>
 </body>
 </html>
