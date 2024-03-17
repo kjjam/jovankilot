@@ -17,7 +17,6 @@ ippanel==2.0.7
 jdatetime==4.1.1
 packaging==24.0
 platformdirs==4.2.0
-psycopg2==2.9.9
 psycopg2-binary==2.9.9
 pycparser==2.21
 requests==2.31.0
