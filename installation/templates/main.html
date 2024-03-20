@@ -1,7 +1,9 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>کلیدسازی جوان</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
     <style>
@@ -16,26 +18,113 @@
             align-items: center;
             justify-content: space-between;
         }
+
+        img:hover {
+        {#-webkit-transform: scaleY(-1);#}{#transform: scaleY(-1);#}
+        }
+
+        #products {
+            padding: 2rem;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border-top: 3px solid #111111;
+        }
+
+        #photo-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .figure {
+            width: 10%;
+            /*height: 15%;*/
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 3rem;
+            flex-grow: 1;
+            margin: 0 2rem 2rem 2rem;
+
+        }
+
+        .photo {
+            width: 100%;
+        }
+
+        .caption {
+            border-top: 1px dashed black;
+            direction: rtl;
+            text-justify: distribute;
+            text-align: justify;
+            font-size: 1.20rem;
+            color: black;
+            margin-top: 2rem;
+            padding-top: 2rem;
+        }
     </style>
 </head>
 <body>
-<div style="display: flex;flex-direction: column;justify-content:center;align-items: center ;margin: 20px">
-    <h1>
-        کلیدسازی جوان
-    </h1>
-    <p style="text-align: center;margin: 0">
-        نشانی: کرمان، جاده تهران
-    </p>
-    <form style="margin: 10px;" method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button style="margin: 20px;padding: 3px" type="submit" class="save btn btn-default">برو</button>
-    </form>
-
-    <p>
-        <br>
-
-
-    </p>
+<div style="display: flex;flex-direction: column">
+    <div style="display: flex;flex-direction: column;justify-content:center;align-items: center ;margin: 20px">
+        <img alt="logo" src="{% static 'logo-javan-2.svg' %}" style="width: 20%"/>
+        <h1>
+            کلیدسازی جوان
+        </h1>
+        <p style="text-align: center;margin: 0">
+            نشانی: کرمان، جاده تهران روبروی بانک ملی
+        </p>
+        <form style="margin: 10px;" method="POST" class="post-form">{% csrf_token %}
+            {{ form.as_p }}
+            <button style="margin: 20px;padding: 3px" type="submit" class="save btn btn-default">برو</button>
+        </form>
+    </div>
+    <div>
+        <div id="products">
+            <h2 style="font-size: 3rem">خدمات</h2>
+            <div id="photo-grid">
+                <figure class="figure">
+                    <img src="{% static 'key-duplicaation.svg' %}" alt="remote" class="photo"/>
+                    <div class="caption">
+                        ساخت انواع کلید ساده و کددار
+                    </div>
+                </figure>
+                <figure class="figure">
+                    <img src="{% static 'holder2.svg' %}" alt="keyholder" class="photo"/>
+                    <div class="caption">
+                        فروش انواع مختلف جاسوییچی فانتزی و ساده
+                    </div>
+                </figure>
+                <figure class="figure">
+                    <img src="{% static 'repair.svg' %}" alt="remote" class="photo"/>
+                    <div class="caption">
+                        تعمیر انواع قفل
+                    </div>
+                </figure>
+                <figure class="figure">
+                    <img src="{% static 'remote.svg' %}" alt="remote" class="photo"/>
+                    <div class="caption">
+                        ساخت انواع ریموت
+                    </div>
+                </figure>
+                <figure class="figure">
+                    <img src="{% static 'car.svg' %}" alt="remote" class="photo"/>
+                    <div class="caption">
+                        کددهی انواع ماشین خارجی و داخلی
+                    </div>
+                </figure>
+                <figure class="figure">
+                    <img src="{% static 'battery.svg' %}" alt="remote" class="photo"/>
+                    <div class="caption">
+                        تعویض باطری انواع ریموت
+                    </div>
+                </figure>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
