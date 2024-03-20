@@ -2,7 +2,7 @@ from django import forms
 
 
 class SearchRequestForm(forms.Form):
-    search_field = forms.CharField(required=True,label="شناسه درخواست")
+    search_field = forms.CharField(required=True,label="")
 
     def clean_search_field(self):
         search_field = self.cleaned_data['search_field']
